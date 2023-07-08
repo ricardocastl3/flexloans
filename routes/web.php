@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controller\Admin\{
+    BalanceController,
+    LoanController
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +26,14 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
+    
     Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+        return view('admin.pages.home');
+    })->name('app.dashboard');
+
+    /*
+    *
+    * 
+    */
+
 });
