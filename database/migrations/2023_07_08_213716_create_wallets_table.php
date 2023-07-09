@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('wallets', function (Blueprint $table) {
-            $table->id();
+            $table->uuid("uuid")->primary();
+            $table->string("name");
+            $table->double("balance");
+            $table->string("card_number");
+            $table->foreignId("user_id")->references("id")
+                ->on("users")->CascadeOnUpdate()->CascadeOnDelete();
             $table->timestamps();
         });
     }

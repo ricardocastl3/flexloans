@@ -13,7 +13,7 @@
     <x-admin.sections.each.dashboard />
     <x-admin.sections.each.wallet />
     <x-admin.sections.each.solicitation />
-
+    <x-admin.sections.each.users />
 </div>
 <div
 @click="openSidebar=false"
