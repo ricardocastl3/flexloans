@@ -33,11 +33,12 @@
         <x-admin.main-left-fixed/>
 
         <!-- Page Content -->
-        <main class="inset-x-0 mt-16 mb-56 sm:ml-44 ml-8 sm:mr-28 mr-8 w-full">
+        <main class="relative inset-x-0 mt-16 mb-56 sm:ml-44 ml-8 sm:mr-28 mr-8 w-full">
             {{ $slot }}
         </main>
 
         <x-admin.mobile-header/>
+        
     </div>
 
     @stack('modals')

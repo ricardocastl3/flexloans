@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controller\Admin\{
-    BalanceController,
-    LoanController
+use App\Http\Controllers\Admin\{
+    SolicitationController,
+    LoanController,
+    WalletController,
+    HomeController
 };
 
 /*
@@ -26,14 +28,30 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    
+
     Route::get('/dashboard', function () {
         return view('admin.pages.home');
     })->name('app.dashboard');
 
     /*
-    *
-    * 
+    * Resource Wallet
     */
+    Route::resource('wallet', WalletController::class);
+
+    /*
+    * Resource Solicitation
+    */
+    Route::resource('solicitation', SolicitationController::class);
+
+
+    /*
+     *  Contact Us
+     */
+    Route::get('contact-us', [HomeController::class, 'ContactUs'])->name('app.contactus');
+
+    /*
+     *  Send Message When Contact to us
+     */
+    Route::match(["post","get"],'sendmessage', [HomeController::class, 'SendMessageWhenContactUs'])->name('app.sendmessage');
 
 });
