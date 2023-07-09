@@ -7,11 +7,15 @@ use Illuminate\Http\Request;
 
 class ExceptionController extends Controller
 {
-    
 
-    public function PageNotFound()
-    {
-        
+
+    public static function ExceptionErrorOnRequest(){
+        session()->flash('error', "Alguma coisa não funcionou. Tente novamente!");
+        return redirect()->back();
+    }
+    public static function ExceptionOnRequestCustom($ex){
+        session()->flash('error', "{$ex}");
+        return redirect()->back();
     }
 
 

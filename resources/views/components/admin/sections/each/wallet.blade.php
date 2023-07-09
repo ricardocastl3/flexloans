@@ -26,16 +26,6 @@
 
             <a href="#" class="bg-gray-800 sm:w-56 w-48 py-3 px-4 rounded-lg flex items-center hover:bg-gray-800/50">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                     class="w-4 h-4 text-white">
-                    <path fill-rule="evenodd"
-                          d="M19.5 21a3 3 0 003-3V9a3 3 0 00-3-3h-5.379a.75.75 0 01-.53-.22L11.47 3.66A2.25 2.25 0 009.879 3H4.5a3 3 0 00-3 3v12a3 3 0 003 3h15zm-6.75-10.5a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V10.5z"
-                          clip-rule="evenodd"/>
-                </svg>
-                <h2 class="text-xs text-white font-bold ml-2">Adicionar nova carteira </h2>
-            </a>
-
-            <a href="#" class="bg-gray-800 sm:w-56 w-48 py-3 px-4 rounded-lg flex items-center hover:bg-gray-800/50">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                      class="w-4 h-4 text-yellow-500">
                     <path fill-rule="evenodd"
                           d="M15.97 2.47a.75.75 0 011.06 0l4.5 4.5a.75.75 0 010 1.06l-4.5 4.5a.75.75 0 11-1.06-1.06l3.22-3.22H7.5a.75.75 0 010-1.5h11.69l-3.22-3.22a.75.75 0 010-1.06zm-7.94 9a.75.75 0 010 1.06l-3.22 3.22H16.5a.75.75 0 010 1.5H4.81l3.22 3.22a.75.75 0 11-1.06 1.06l-4.5-4.5a.75.75 0 010-1.06l4.5-4.5a.75.75 0 011.06 0z"

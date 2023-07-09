@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{
     SolicitationController,
-    LoanController,
     WalletController,
     HomeController
 };
@@ -19,9 +18,7 @@ use App\Http\Controllers\Admin\{
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', 'register', 301);
 
 Route::middleware([
     'auth:sanctum',
@@ -29,9 +26,11 @@ Route::middleware([
     'verified'
 ])->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('admin.pages.home');
-    })->name('app.dashboard');
+
+    /*
+    * Dashboard Page
+    */
+    Route::get('/dashboard', [HomeController::class, 'home'])->name('app.dashboard');
 
     /*
     * Resource Wallet
@@ -43,15 +42,19 @@ Route::middleware([
     */
     Route::resource('solicitation', SolicitationController::class);
 
+    /*
+    * Finalizing Solicitation
+    */
+    Route::match(['get','post'],'finalizing', [SolicitationController::class, 'finalSolicitation'])->name('sol.finalizing');
 
     /*
-     *  Contact Us
+     *  Contact Us - Page
      */
-    Route::get('contact-us', [HomeController::class, 'ContactUs'])->name('app.contactus');
+    Route::get('contact-us', [HomeController::class, 'contactUs'])->name('app.contactus');
 
     /*
      *  Send Message When Contact to us
      */
-    Route::match(["post","get"],'sendmessage', [HomeController::class, 'SendMessageWhenContactUs'])->name('app.sendmessage');
+    Route::match(["post","get"],'sendmessage', [HomeController::class, 'sendMessageWhenContactUs'])->name('app.sendmessage');
 
 });

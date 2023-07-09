@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Admin\Exceptions\ExceptionController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateWalletRequest;
 use App\Models\Wallet;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+
 class WalletController extends Controller
 {
     /**
@@ -23,22 +24,16 @@ class WalletController extends Controller
 
     public function index()
     {
-        return view('admin.pages.wallet.index');
+        $wallets = Wallet::latest()->paginate();
+        return view('admin.pages.wallet.index', compact('wallets'));
     }
-
-    /**
-     * Show the form for creating a new resource.
+    /*
+     * Generate Unique Card Number
      */
-    public function create()
-    {
-        //
-    }
-
-
     public function generateUniqueCardNumber()
     {
         do {
-            $card_number = random_int(1000000000,99999999999);
+            $card_number = random_int(10000000000000,9999999999999999);
         } while (Wallet::where("card_number", "=", $card_number)->first());
 
         return $card_number;
@@ -49,50 +44,118 @@ class WalletController extends Controller
      */
     public function store(StoreUpdateWalletRequest $request)
     {
-        $datas = $request->validated();
-        $card_number = $this->generateUniqueCardNumber();
+        try{
 
-        $wallet = $this->repository->create([
-            "name" => $datas["name"],
-            "balance" => $datas["balance"],
-            "card_number" => $card_number,
-            "user_id" => auth()->user()->id,
-            "status" => "Pendente..."
-        ]);
-        $wallet->associate()->auth()->user();
-        session()->flash('success','Carteira adicionada com sucesso');
-        return redirect()->back();
+            $datas = $request->validated();
+            $card_number = $this->generateUniqueCardNumber();
+
+            $wallet = $this->repository->create([
+                "name" => $datas["name"],
+                "balance" => $datas["balance"],
+                "card_number" => $card_number,
+                "user_id" => auth()->user()->id,
+            ]);
+            $wallet->user()->associate(auth()->user());
+            session()->flash('success','Carteira adicionada com sucesso');
+            return redirect()->back();
+
+        }catch (\Exception $ex)
+        {
+            return ExceptionController::ExceptionOnRequestCustom($ex);
+        }
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $uuid)
     {
-        //
+        try{
+
+            $wallet = Wallet::findOrFail($uuid);
+
+            if($wallet != null)
+            {
+                return view('admin.pages.wallet.delete', compact('wallet'));
+
+            }else{
+                return ExceptionController::ExceptionOnRequestCustom("Carteira não encontrada!");
+            }
+
+        }catch (\Exception $ex)
+        {
+            return ExceptionController::ExceptionErrorOnRequest();
+        }
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $uuid)
     {
-        //
+        try{
+            $wallet = Wallet::findOrFail($uuid);
+
+            if($wallet != null)
+            {
+                return view('admin.pages.wallet.modals.edit', compact('wallet'));
+            }else{
+                return ExceptionController::ExceptionOnRequestCustom("Carteira não encontrada!"); 
+            }
+        }catch(\Exception $ex)
+        {
+            return ExceptionController::ExceptionErrorOnRequest();
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoreUpdateWalletRequest $request, string $uuid)
     {
-        //
+        try{
+
+            $wallet = Wallet::findOrFail($uuid);
+
+            if($wallet != null)
+            {
+                $datas = $request->validated();
+                $wallet->update($datas);
+                session()->flash('success', 'Carteira atualizada com êxito!');
+                return redirect()->route('wallet.index');
+
+            }else{
+                return ExceptionController::ExceptionOnRequestCustom("Carteira não encontrada!");
+            }
+
+        }catch (\Exception $ex)
+        {
+            return ExceptionController::ExceptionErrorOnRequest();
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $uuid)
     {
-        //
+        try{
+
+            $wallet = Wallet::findOrFail($uuid);
+
+            if($wallet != null)
+            {
+                $wallet->delete();
+                session()->flash('success', 'Carteira eliminada com êxito!');
+                return redirect()->route('wallet.index');
+                
+            }else{
+                return ExceptionController::ExceptionOnRequestCustom("Carteira não encontrada!"); 
+            }
+
+        }catch(\Exception $ex)
+        {
+            return ExceptionController::ExceptionErrorOnRequest(); 
+        }
     }
 }

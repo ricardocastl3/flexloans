@@ -1,5 +1,7 @@
 <x-admin-layout>
 
+    <x-admin.alerts.alerts/>
+
     <div class="flex flex-col my-8 w-full">
         <h2 class="flex items-center font-bold text-md text-white">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2">

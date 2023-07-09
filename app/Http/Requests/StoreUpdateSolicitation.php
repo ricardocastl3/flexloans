@@ -11,7 +11,7 @@ class StoreUpdateSolicitation extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,19 @@ class StoreUpdateSolicitation extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "requested_balance" => "required",
+            "rate" => "required",
+            "deadline" => "required",
+            "wallet" => "nullable"
+        ];
+    }
+
+    public function messages() : array 
+    {
+        return [
+            "requested_balance.required" => "Informe o plano pretendido!",
+            "rate.required" => "Especifique a taxa por favor.",
+            "deadline.required" => "Informe a data limite por favor."
         ];
     }
 }

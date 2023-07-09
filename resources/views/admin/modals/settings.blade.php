@@ -33,14 +33,6 @@
                     </svg>
                     Meus dados
                 </button>
-                <button class="font-bold text-gray-300 text-xs p-4 flex cursor-pointer hover:bg-gray-800 w-full"
-                @click="setTabs = 'export-projects'">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-gray-300 mr-2">
-                        <path d="M4.08 5.227A3 3 0 016.979 3H17.02a3 3 0 012.9 2.227l2.113 7.926A5.228 5.228 0 0018.75 12H5.25a5.228 5.228 0 00-3.284 1.153L4.08 5.227z" />
-                        <path fill-rule="evenodd" d="M5.25 13.5a3.75 3.75 0 100 7.5h13.5a3.75 3.75 0 100-7.5H5.25zm10.5 4.5a.75.75 0 100-1.5.75.75 0 000 1.5zm3.75-.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" clip-rule="evenodd" />
-                    </svg>
-                    Exportar Projectos
-                </button>
                 <button class="flex justify-between items-center font-bold text-gray-300 text-xs p-4 cursor-pointer hover:bg-gray-800 w-full"
                 @click="setTabs = 'upgrade'">
                     <div class="flex">
@@ -65,7 +57,6 @@
                 </button>
                 <div class="col-span-2 p-4">
                     @include('admin.modals.settings.profile-data')
-                    @include('admin.modals.settings.export-projects')
                     @include('admin.modals.settings.upgrade')
                 </div>
             </div>
@@ -81,14 +72,6 @@
                             <path d="M12 20.25c2.685 0 5.19-.586 7.078-1.609a8.282 8.282 0 001.897-1.384c.016.121.025.244.025.368 0 2.692-4.03 4.875-9 4.875s-9-2.183-9-4.875c0-.124.009-.247.025-.368a8.284 8.284 0 001.897 1.384C6.809 19.664 9.315 20.25 12 20.25z" />
                         </svg>
                         Meus dados
-                    </button>
-                    <button class="font-bold text-gray-300 text-xs p-4 flex cursor-pointer hover:bg-gray-800 w-full"
-                    @click="setTabs = 'export-projects'">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-gray-300 mr-2">
-                            <path d="M4.08 5.227A3 3 0 016.979 3H17.02a3 3 0 012.9 2.227l2.113 7.926A5.228 5.228 0 0018.75 12H5.25a5.228 5.228 0 00-3.284 1.153L4.08 5.227z" />
-                            <path fill-rule="evenodd" d="M5.25 13.5a3.75 3.75 0 100 7.5h13.5a3.75 3.75 0 100-7.5H5.25zm10.5 4.5a.75.75 0 100-1.5.75.75 0 000 1.5zm3.75-.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" clip-rule="evenodd" />
-                        </svg>
-                        Exportar Projectos
                     </button>
                     <button class="flex justify-between items-center font-bold text-gray-300 text-xs p-4 cursor-pointer hover:bg-gray-800 w-full"
                     @click="setTabs = 'upgrade'">
@@ -116,7 +99,6 @@
 
                 <div class="col-span-2 p-4">
                     @include('admin.modals.settings.profile-data')
-                    @include('admin.modals.settings.export-projects')
                     @include('admin.modals.settings.upgrade')
                 </div>
 

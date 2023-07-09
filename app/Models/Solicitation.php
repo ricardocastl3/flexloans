@@ -15,8 +15,17 @@ class Solicitation extends Model
     protected $primaryKey = "uuid";
     protected $keyType = "string";
 
+    protected $fillable = ["description", "requested_balance", 
+    "rate", "deadline", "status", "date","user_id", "wallet_id"];
+
+    public function wallet() : BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function user() : BelongsTo
     {
         return $this->belongsTo(User::class);
     }
+
 }
