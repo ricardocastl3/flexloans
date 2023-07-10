@@ -13,12 +13,13 @@ Ela é responsiva o que significa que pode ser acessada em diversos dispositivos
 ![mobile-version](https://github.com/ricardocastl3/flexloans/blob/master/public/assets/Images/desktop-02.png?raw=true)
 
 ### Visualização Móvel
-![mobile-version](https://github.com/ricardocastl3/flexloans/blob/master/public/assets/Images/mobile-version-01.png?raw=true)
----
-### Visão dos Cartões
-![mobile-version](https://github.com/ricardocastl3/flexloans/blob/master/public/assets/Images/mobile-version-02.png?raw=true)
-### Visão dos Cartões
-![mobile-version](https://github.com/ricardocastl3/flexloans/blob/master/public/assets/Images/mobile-version-05.png?raw=true)
+<img src="https://github.com/ricardocastl3/flexloans/blob/master/public/assets/Images/mobile-version-01.png?raw=true" width="200">
+
+### Visão das Carteiras
+<img src="https://github.com/ricardocastl3/flexloans/blob/master/public/assets/Images/mobile-version-02.png?raw=true" width="200">
+
+### Cartões de empréstimos
+<img src="https://github.com/ricardocastl3/flexloans/blob/master/public/assets/Images/mobile-version-05.png?raw=true" width="200">
 
 ## 🚀 Começando
 
