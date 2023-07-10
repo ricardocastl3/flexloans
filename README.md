@@ -90,7 +90,7 @@ Em seu terminal vai aparacer um link do seu host local que será usado para pode
 
 Para o desenvolvimento da plataforma temos como: 
 
-* **Desenvolvedor e Documentação** - *Trabalho Inicial* - [Ricardo Castle](https://github.com/ricardocastl3)
+* **Desenvolvedor e Documentação** - [Ricardo Castle](https://github.com/ricardocastl3)
 
 
 ## 🎁 Expressões de gratidão
