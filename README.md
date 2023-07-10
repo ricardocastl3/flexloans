@@ -85,6 +85,7 @@ Em seu terminal vai aparacer um link do seu host local que será usado para pode
 
 * [PHP Laravel](https://laravel.com/docs/) - O framework Web usado no Back-End.
 * [Livewire](https://laravel-livewire.com/docs/2.x/quickstart) e [AlpineJS](https://alpinejs.dev/) - Frameworks front-end usados na aplicação.
+* [TailWindCss](https://tailwindcss.com/docs/installation) - Framework CSS, para estilização das páginas.
 
 ## ✒️ Autores
 
